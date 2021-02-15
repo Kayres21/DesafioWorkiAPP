@@ -1,4 +1,4 @@
-#Pasos previos de ejecución 
+#Pasos previos de ejecución #
 Instalar las siguientes librerias
 pip install fpdf 
 pip install psycopg2 
