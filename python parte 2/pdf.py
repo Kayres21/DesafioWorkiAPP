@@ -9,15 +9,14 @@ def make_pdf():
                 reader
                         
                 pdf = FPDF()
-
                 pdf.add_page()
-
+                
                 page_width = pdf.w - 2 * pdf.l_margin
-
+                
                 pdf.set_font('Times','B',20.0) 
                 pdf.cell(page_width, 0.0, 'Usuarios Data', align='C')
                 pdf.ln(10)
-
+                pdf.image('emblemmatic-pdf-logo-24.png', x= page_width/6, y=0, w=20, h= 20)
                 pdf.set_font('Courier', '', 8)
 
                 col_width = page_width/6
