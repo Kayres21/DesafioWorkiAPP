@@ -46,6 +46,17 @@ router.get('/nombre/:nombre', function(req, res) {
   });
 });
 
+router.get('/', function(req, res) { 
+  db.db.any("SELECT * FROM users", filtro)
+  .then(function (data) {
+      console.log("DATA:", data);
+      res.send(data)
+  })
+  .catch(function (error) {
+      console.log("ERROR:", error);
+  });
+});
+
 
 
 
