@@ -55,6 +55,9 @@
                     <div class="col"><button id = "filtrar_fecha" class="boton"  type = "button" >Buscar</button></div>
                     <div class="col"><button id = "filtrar_nombre" class="boton"  type = "button" >Buscar</button></div>
                 </div>
+                <div id = "resultados1" class="row">
+
+                </div>
             </div>
 
 
@@ -81,6 +84,9 @@
                     url: 'http://localhost:3000/encuestas/nombre/' + nombre,
                     success: function(data){
                         console.log(data)
+                        $("#resultados1").append(
+                            "<div class = 'col-12'>"+ "La cantidad de fichas son = "  + data[0].count +"</div>"
+                        )
                     }
                 })
                 }
@@ -90,15 +96,6 @@
                 var fecha1 = $('#datetimepicker1').val();
                 var fecha2 = $('#datetimepicker2').val();
                 
-
-                var seteo1 = fecha1
-                var seteo2 =  fecha2
-
-                console.log(seteo1)
-                console.log(seteo2)
-
-
-
                 
                 $.ajax({
                     type: 'POST',
@@ -107,7 +104,8 @@
                         tiempoSuperior: fecha2,
                         tiempoInferior: fecha1
                     },
-                    contentType: "application/json; charset=utf-8",
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    contentType: 'application/x-www-form-urlencoded; charset=utf-8',
                     cache:false,
                     success: function(data){    
                         console.log(data)
