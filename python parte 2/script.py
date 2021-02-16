@@ -51,9 +51,11 @@ def main():
 
 
 
+try:
+    main()
+except:
+    print('Error')
 
-
-main()
     
 
   

@@ -26,7 +26,6 @@ const encuentasRango = `SELECT count(TABLA_FINAL.RANGO_FILTRADO) FROM (SELECT *,
 router.post('/rango', function(req, res) { 
   db.db.any(encuentasRango, [req.body.tiempoSuperior, req.body.tiempoInferior])
   .then(function (data) {
-      console.log("DATA:", data);
       res.send(data)
   })
   .catch(function (error) {
@@ -38,7 +37,6 @@ router.get('/nombre/:nombre', function(req, res) {
   const filtro = req.params.nombre + '%'
   db.db.any(encuentasNombre, filtro)
   .then(function (data) {
-      console.log("DATA:", data);
       res.send(data)
   })
   .catch(function (error) {
@@ -47,9 +45,9 @@ router.get('/nombre/:nombre', function(req, res) {
 });
 
 router.get('/', function(req, res) { 
-  db.db.any("SELECT * FROM users", filtro)
+  db.db.any("SELECT * FROM users")
   .then(function (data) {
-      console.log("DATA:", data);
+      console.log(data)
       res.send(data)
   })
   .catch(function (error) {
